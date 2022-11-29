@@ -1,0 +1,116 @@
+html {
+  position: relative;
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+body {
+  min-width: 320px;
+  min-height: 100vh;
+  font-family: Arial, sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  color: #303233;
+  background-color: #fff;
+  line-height: 1.43;
+  position: relative;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+button {
+  padding: 0;
+  cursor: pointer;
+  border: 0;
+  background: transparent;
+  color: inherit;
+  display: block;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+a, abbr, article, aside, audio, bdi, body, br, canvas, data, datalist, dd, details, div, dl, dt, em, fieldset, figcaption, figure, footer, form, h1, h2, h3, h4, h5, h6, header, hr, html, iframe, img, label, legend, li, main, mark, meter, nav, object, ol, output, p, progress, section, small, span, strong, sub, summary, sup, table, tbody, td, tfoot, thead, time, tr, ul, video {
+  padding: 0;
+  margin: 0;
+  border: 0;
+  outline: none;
+  background: transparent;
+}
+
+iframe {
+  border: none;
+}
+
+.visually-hidden {
+  position: absolute !important;
+  clip: rect(1px 1px 1px 1px);
+  /* IE6, IE7 */
+  clip: rect(1px, 1px, 1px, 1px);
+  padding: 0 !important;
+  border: 0 !important;
+  height: 1px !important;
+  width: 1px !important;
+  overflow: hidden;
+}
+
+.container {
+  max-width: 1320px;
+  padding: 0 20px;
+  margin: 0 auto;
+  @media (max-width: 1024px) {
+    max-width: 680px;
+  }
+}
+
+
+.btn-dotted {
+  color: #3c9df2;
+  transition: color .1s,opacity .1s;
+  text-decoration: underline dashed 1px;
+  text-underline-offset: 3px;
+  width: 100%;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  &:hover {
+    color: #e53e3e;
+  }
+}
+
+.deactivate {
+  pointer-events: none;
+
+}
+
+
+.overlay {
+  padding: 30px;
+  display: none;
+  cursor: pointer;
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  overflow-y: auto;
+  background-image: radial-gradient(circle, rgba(0,0,0,0.5) 0%, rgba(255,255,255,0.5) 100%);
+  &_active {
+    display: block;
+  }
+}

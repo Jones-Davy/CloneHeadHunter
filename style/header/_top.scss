@@ -1,0 +1,51 @@
+.top {
+  &__container {
+    height: 40px;
+  }
+
+  &__city {
+    margin-right: 40px;
+  }
+
+  &__link {
+    margin-right: 20px;
+    color: #303233;
+    &:hover {
+      color: #e53e3e;
+    }
+    &:last-child {
+      margin-right: 0;
+    }
+    &[href] {
+      color: #61aef2;
+    }
+   &_left {
+     @media (max-width: 1024px) {
+       display: none;
+     }
+   }
+    &_right {
+      @media (max-width: 600px) {
+        display: none;
+      }
+    }
+  }
+
+  &__all-service {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    &:after {
+      content: '';
+      display: block;
+      min-width: 13px;
+      height: 13px;
+      background: url("../img/menu.svg") 0 0 no-repeat;
+    }
+    &:hover:after {
+      background-position: -13px 0;
+    }
+  }
+}
+
+

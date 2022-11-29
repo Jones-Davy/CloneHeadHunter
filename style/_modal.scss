@@ -1,0 +1,68 @@
+.modal {
+  position: absolute;
+  top: 5%;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 50px 30px 30px;
+  background-color: #fff;
+  max-width: 600px;
+  border-radius: 12px;
+  cursor: auto;
+
+  &__close {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    padding: 5px;
+    font-size: 24px;
+  }
+
+  &__title {
+    margin-bottom: 10px;
+  }
+
+  &__compensation {
+    margin-bottom: 5px;
+  }
+
+  &__employer {
+    margin-bottom: 5px;
+  }
+
+  &__address {
+    margin-bottom: 20px;
+  }
+
+  &__experience {
+    margin-bottom: 5px;
+  }
+
+  &__employment {
+    margin-bottom: 20px;
+  }
+
+  &__description {
+    margin-bottom: 30px;
+  }
+
+  &__response {
+    border-radius: 4px;
+    border: 1px solid #1785e5;
+    color: #fff;
+    background-color: #1785e5;
+    font-size: 14px;
+    height: 32px;
+    padding: 0 12px;
+    font-family: inherit;
+    line-height: 30px;
+    transition: background-color .36s ease-in-out, color .36s ease-in-out;
+  }
+}
+
+.skills {
+  margin-bottom: 30px;
+
+  &__title {
+    margin-bottom: 10px;
+  }
+}

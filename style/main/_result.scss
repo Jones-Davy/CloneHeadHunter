@@ -1,0 +1,9 @@
+.result {
+  flex-grow: 1;
+  &__item {
+    margin-bottom: 16px;
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+}

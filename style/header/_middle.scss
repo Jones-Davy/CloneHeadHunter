@@ -1,0 +1,103 @@
+.middle {
+  background-color: #222324;
+  color: #fff;
+  font-size: 16px;
+
+  &__container {
+    height: 80px;
+  }
+
+  &__logo {
+    height: 50px;
+    width: 50px;
+    margin-right: 30px;
+    @media (max-width: 600px) {
+      margin-right: 0;
+    }
+  }
+
+  &__help {
+    background-image: linear-gradient(90deg, hsla(0, 0%, 100%, .5), hsla(0, 0%, 100%, .5) 60%, hsla(0, 0%, 100%, 0) 0, hsla(0, 0%, 100%, 0));
+    background-position: 0 bottom;
+    background-size: 5px 1px;
+    background-repeat: repeat-x;
+    color: #fff;
+
+    &:hover {
+      background-image: linear-gradient(90deg, rgba(149, 203, 249, .5), rgba(149, 203, 249, .5) 60%, hsla(0, 0%, 100%, 0) 0, hsla(0, 0%, 100%, 0));
+      color: #95cbf9;
+    }
+
+    @media (max-width: 600px) {
+      display: none;
+    }
+  }
+
+  &__search-btn {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    margin-right: 20px;
+
+    &:before {
+      content: '';
+      display: inline-block;
+      height: 30px;
+      min-width: 30px;
+      background-image: url('../img/search.svg');
+      background-repeat: no-repeat;
+      background-position: 0 0;
+    }
+
+    &:hover {
+      color: #3c9df2;
+
+      &:before {
+        background-position: -30px 0;
+      }
+    }
+
+    @media (max-width: 600px) {
+      display: none;
+    }
+
+  }
+
+  &__create-resume {
+    box-sizing: border-box;
+    margin-right: 10px;
+    height: 40px;
+    padding: 0 12px;
+    color: #a3daa5;
+    border-radius: 20px;
+    border: 1px solid rgba(163, 218, 165, .5);
+    background-color: rgba(48, 50, 51, .2);
+
+    &:hover, &:focus, &:active {
+      outline: none;
+      text-decoration: none;
+      color: #a3daa5;
+      border-color: #a3daa5;
+    }
+
+    @media (max-width: 600px) {
+      padding: 0 5px;
+    }
+  }
+
+  &__sign-in {
+    height: 40px;
+    padding: 0 12px;
+    color: #fff;
+    border-radius: 20px;
+    border: 1px solid hsla(0, 0%, 100%, .5);
+
+    &:hover {
+      outline: none;
+      text-decoration: none;
+      color: #fff;
+      border-color: #fff;
+    }
+  }
+
+}

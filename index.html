@@ -1,0 +1,289 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="apple-touch-icon" sizes="180x180" href="icon/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="icon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="icon/favicon-16x16.png">
+  <link rel="manifest" href="site.webmanifest">
+  <link rel="mask-icon" href="icon/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#2d89ef">
+  <meta name="theme-color" content="#ffffff">
+  <title>Head Hunter</title>
+  <link rel="stylesheet" href="style/index.css">
+  <script src="./script/index.js" defer></script>
+</head>
+<body class="body">
+  <header class="header">
+    <div class="header__top top">
+      <div class="container">
+        <div class="header__container top__container">
+          <div class="header__left">
+            <button class="top__city btn-dotted">Россия</button>
+            <a class="top__link top__link_left">Соискателям</a>
+            <a href="#" class="top__link top__link_left">Работодателям</a>
+          </div>
+
+          <div class="header__right">
+            <a class="top__link top__link_right" href="#">Готовое резюме</a>
+            <a class="top__link top__link_right" href="#">Карьерная консультация</a>
+            <button class="top__all-service"><span class="btn-dotted">Все сервисы</span></button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="header__middle middle">
+      <div class="container">
+        <div class="header__container middle__container">
+          <div class="header__left">
+            <img src="img/logo.svg" alt="Логотип HeadHunter" class="middle__logo">
+            <button class="middle__help">Помощь</button>
+          </div>
+
+          <div class="header__right">
+            <button class="middle__search-btn deactivate" tabindex="-1"><span>Поиск</span></button>
+            <button class="middle__create-resume">Создать резюме</button>
+            <button class="middle__sign-in">Войти</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="header__bottom bottom">
+      <div class="container">
+        <form class="bottom__search">
+          <div class="bottom__search-wrapper">
+            <input class="bottom__input" type="search" name="search">
+            <button class="bottom__advanced-options" type="button"></button>
+          </div>
+          <button class="bottom__btn" type="submit">Найти</button>
+        </form>
+
+        <nav class="bottom__navigation navigation">
+          <ul class="navigation__list">
+            <li class="navigation__item"><a href="#" class="navigation__link navigation__link_active">Вакансии</a></li>
+            <li class="navigation__item"><a href="#" class="navigation__link">Резюме</a></li>
+            <li class="navigation__item"><a href="#" class="navigation__link">Компании</a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <main class="main">
+    <div class="container">
+      <!--<h1 class="found">38 вакансий &laquo;<span class="found__item">Junior Frontend</span>&raquo;</h1> -->
+      <h1 class="found">Последние вакансии</h1>
+
+      <div class="option">
+        <div class="option__field option__field_order">
+          <button class="option__btn option__btn_order">По дате</button>
+          <input type="hidden" id="order_by" name="order_by" value="date">
+          <ul class="option__list option__list_order">
+            <li class="option__item option__item_active" tabindex="1" data-sort="date">По дате</li>
+            <li class="option__item" tabindex="1" data-sort="up">По убыванию зарплат</li>
+            <li class="option__item" tabindex="1" data-sort="down">По возрастанию зарплат</li>
+          </ul>
+        </div>
+
+        <div class="option__field option__field_period">
+          <button class="option__btn option__btn_period">За всё время</button>
+          <input type="hidden" id="search_period" name="search_period" value="365">
+          <ul class="option__list option__list_period">
+            <li class="option__item option__item_active" data-date="365">За всё время</li>
+            <li class="option__item" tabindex="1" data-date="30">За месяц</li>
+            <li class="option__item" tabindex="1" data-date="7">За неделю</li>
+            <li class="option__item" tabindex="1" data-date="3">За три дня</li>
+            <li class="option__item" tabindex="1" data-date="1">За сутки</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="wrapper">
+        <div class="wrapper__filter filter">
+          <form class="filter__form">
+            <fieldset class="filter__box">
+              <legend class="filter__title">Уровень дохода</legend>
+              <label class="filter__field filter__field_radio">
+                <input class="filter__input filter__input_radio" type="radio" name="salary" value="30000">
+                <span class="filter__text">от 30 000 руб.</span>
+              </label>
+              <label class="filter__field filter__field_radio">
+                <input class="filter__input filter__input_radio" type="radio" name="salary" value="50000">
+                <span class="filter__text">от 50 000 руб.</span>
+              </label>
+              <label class="filter__field filter__field_radio">
+                <input class="filter__input filter__input_radio" type="radio" name="salary" value="80000">
+                <span class="filter__text">от 80 000 руб.</span>
+              </label>
+              <label class="filter__field filter__field_radio">
+                <input class="filter__input filter__input_radio" type="radio" name="salary" value="120000">
+                <span class="filter__text">от 120 000 руб.</span>
+              </label>
+            </fieldset>
+
+            <fieldset class="filter__box">
+              <legend class="filter__title">Регион</legend>
+              <label class="filter__field filter__field_checkbox">
+                <input class="filter__input filter__input_checkbox" type="checkbox" name="region" value="Moscow">
+                <span class="filter__text">Москва</span>
+              </label>
+              <label class="filter__field filter__field_checkbox">
+                <input class="filter__input filter__input_checkbox" type="checkbox" name="region" value="Chelyabinsk">
+                <span class="filter__text">Челябинск</span>
+              </label>
+              <label class="filter__field filter__field_checkbox">
+                <input class="filter__input filter__input_checkbox" type="checkbox" name="region" value="Kaliningrad">
+                <span class="filter__text">Калининград</span>
+              </label>
+              <label class="filter__field filter__field_checkbox">
+                <input class="filter__input filter__input_checkbox" type="checkbox" name="region" value="Novosibirsk">
+                <span class="filter__text">Новосибирск</span>
+              </label>
+            </fieldset>
+
+            <fieldset class="filter__box">
+              <legend class="filter__title">Опыт работы</legend>
+              <label class="filter__field filter__field_radio">
+                <input class="filter__input filter__input_radio" type="radio" name="experience" value="0">
+                <span class="filter__text">Нет опыта</span>
+              </label>
+              <label class="filter__field filter__field_radio">
+                <input class="filter__input filter__input_radio" type="radio" name="experience" value="1">
+                <span class="filter__text">от 1 года до 3 лет</span>
+              </label>
+              <label class="filter__field filter__field_radio">
+                <input class="filter__input filter__input_radio" type="radio" name="experience" value="3">
+                <span class="filter__text">от 3 до 6 лет</span>
+              </label>
+              <label class="filter__field filter__field_radio">
+                <input class="filter__input filter__input_radio" type="radio" name="experience" value="3">
+                <span class="filter__text">более 6 лет</span>
+              </label>
+            </fieldset>
+
+            <fieldset class="filter__box">
+              <legend class="filter__title">График работы</legend>
+              <label class="filter__field filter__field_checkbox">
+                <input class="filter__input filter__input_checkbox" type="checkbox" name="region" value="remote">
+                <span class="filter__text">Удаленная работа</span>
+              </label>
+              <label class="filter__field filter__field_checkbox">
+                <input class="filter__input filter__input_checkbox" type="checkbox" name="region" value="fullDay">
+                <span class="filter__text">Полная занятость</span>
+              </label>
+              <label class="filter__field filter__field_checkbox">
+                <input class="filter__input filter__input_checkbox" type="checkbox" name="region" value="flexible">
+                <span class="filter__text">Гибкий график</span>
+              </label>
+            </fieldset>
+
+            <div class="filter__mobile">
+              <button class="filter__reset">Сбросить все</button>
+              <button class="filter__apply">Применить фильтры</button>
+            </div>
+          </form>
+        </div>
+        <div class="wrapper__result result">
+          <ul class="result__list">
+          
+          </ul>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <div class="overlay overlay_vacancy">
+   
+  </div>
+
+  <div class="city">
+    <div class="container city__container">
+      <button class="city__close">✕</button>
+
+      <form class="city__form">
+        <label class="city__label" for="city__label">Укажите город, который требуется найти:</label>
+        <div class="city__input-wrapper">
+          <input type="search" class="city__input" id="city__label" placeholder="Поис по городам">
+          <button type="submit" class="city__search-button"></button>
+        </div>
+      </form>
+
+      <div class="city__region">
+        <ul class="city__region-list">
+          <li class="city__region-item">
+            <ul class="city__list">
+              <li class="city__item"><a class="city__link" href="#country">Россия</a></li>
+              <li class="city__item"><a class="city__link" href="#city">Москва</a></li>
+              <li class="city__item"><a class="city__link" href="#city">Санкт-Петербург</a></li>
+              <li class="city__item"><a class="city__link" href="#city">Владивосток</a></li>
+              <li class="city__item"><a class="city__link" href="#city">Екатеринбург</a></li>
+              <li class="city__item"><a class="city__link" href="#city">Челябинск</a></li>
+              <li class="city__item"><a class="city__link" href="#city">Калининград</a></li>
+            </ul>
+          </li>
+          <li class="city__region-item">
+            <ul class="city__list">
+              <li class="city__item"><a class="city__link" href="#country">Украина</a></li>
+              <li class="city__item"><a class="city__link" href="#city">Киев</a></li>
+              <li class="city__item"><a class="city__link" href="#city">Днепропетровск</a></li>
+              <li class="city__item"><a class="city__link" href="#city">Донецк</a></li>
+              <li class="city__item"><a class="city__link" href="#city">Львов</a></li>
+              <li class="city__item"><a class="city__link" href="#city">Одесса</a></li>
+              <li class="city__item"><a class="city__link" href="#city">Харьков</a></li>
+            </ul>
+          </li>
+          <li class="city__region-item">
+            <ul class="city__list">
+              <li class="city__item"><a class="city__link" href="#country">Казахстан</a></li>
+              <li class="city__item"><a class="city__link" href="#city">Нур-Султан</a></li>
+              <li class="city__item"><a class="city__link" href="#city">Актобе</a></li>
+              <li class="city__item"><a class="city__link" href="#city">Алматы</a></li>
+              <li class="city__item"><a class="city__link" href="#city">Павлодар</a></li>
+              <li class="city__item"><a class="city__link" href="#city">Тараз</a></li>
+              <li class="city__item"><a class="city__link" href="#city">Усть-Каменогорск</a></li>
+            </ul>
+          </li>
+          <li class="city__region-item">
+            <ul class="city__list">
+              <li class="city__item"><a class="city__link" href="#country">Беларусь</a></li>
+              <li class="city__item"><a class="city__link" href="#city">Минск</a></li>
+              <li class="city__item"><a class="city__link" href="#city">Брест</a></li>
+              <li class="city__item"><a class="city__link" href="#city">Витебск</a></li>
+              <li class="city__item"><a class="city__link" href="#city">Гомель</a></li>
+              <li class="city__item"><a class="city__link" href="#city">Гродно</a></li>
+              <li class="city__item"><a class="city__link" href="#city">Могилев</a></li>
+            </ul>
+          </li>
+          <li class="city__region-item">
+            <ul class="city__list">
+              <li class="city__item"><a class="city__link" href="#country">Узбекистан</a></li>
+              <li class="city__item"><a class="city__link" href="#city">Ташкент</a></li>
+            </ul>
+          </li>
+          <li class="city__region-item">
+            <ul class="city__list">
+              <li class="city__item"><a class="city__link" href="#country">Азербайджан</a></li>
+              <li class="city__item"><a class="city__link" href="#city">Баку</a></li>
+            </ul>
+          </li>
+          <li class="city__region-item">
+            <ul class="city__list">
+              <li class="city__item"><a class="city__link" href="#country">Грузия</a></li>
+              <li class="city__item"><a class="city__link" href="#city">Тбилиси</a></li>
+            </ul>
+          </li>
+          <li class="city__region-item">
+            <ul class="city__list">
+              <li class="city__item"><a class="city__link" href="#country">Кыргызстан</a></li>
+              <li class="city__item"><a class="city__link" href="#city">Бишкек</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>

@@ -1,0 +1,125 @@
+.city {
+  display: none;
+  position: absolute;
+  top: 40px;
+  left: 0;
+  width: 100%;
+  height: calc(100vh - 40px);
+  background-color: #fff;
+  border-top: 1px solid #d4d7d9;
+  padding: 25px 0;
+  overflow-y: auto;
+  &_active {
+    display: block;
+  }
+  &__form {
+    padding-bottom: 25px;
+    border-bottom: 1px solid #edeff0;
+    margin-bottom: 25px;
+  }
+
+  &__container {
+    position: relative;
+    width: 100%;
+    @media (max-width: 1024px) {
+      padding-top: 50px;
+    }
+    @media (max-width: 600px) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  &__close {
+    position: absolute;
+    right: 20px;
+    top: 0;
+    text-decoration: none;
+    font-size: 24px;
+
+    &:hover {
+      color: #e53e3e;
+    }
+  }
+
+  &__label {
+    display: block;
+    margin-bottom: 4px;
+  }
+
+  &__input-wrapper {
+    position: relative;
+    max-width: 800px;
+  }
+
+  &__input {
+    width: 100%;
+    padding-left: 12px;
+    padding-right: 34px;
+    height: 40px;
+    border: 1px solid #babdbf;
+    background-color: #fff;
+    line-height: 38px;
+    border-radius: 4px;
+    outline: 0;
+    &::placeholder {
+      color: #babdbf;
+    }
+    &:hover {
+      border-color: #888b8c;
+    }
+    &:focus {
+      border-color: #1785e5;
+    }
+  }
+
+  &__search-button {
+    position: absolute;
+    display: block;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 9px;
+    background: url("../img/search_min.svg") no-repeat 0 0;
+    width: 16px;
+    height: 16px;
+    &:hover {
+      background-position: -18px 1px;
+    }
+  }
+
+  &__region {
+
+  }
+
+  &__region-list {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 100px 50px;
+    @media (max-width: 1024px) {
+      grid-template-columns: repeat(3, 1fr);
+    }
+    @media (max-width: 600px) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  &__region-item {
+
+  }
+
+  &__list {
+
+  }
+
+  &__item {
+    margin-bottom: 8px;
+  }
+
+  &__link {
+    color: #3c9df2;
+    transition: color .1s,opacity .1s;
+    &:hover {
+      color: #0d69ba;
+    }
+  }
+
+}

@@ -1,0 +1,82 @@
+.option {
+  padding: 15px 0;
+  border-bottom: 1px solid #edeff0;
+  border-top: 1px solid #edeff0;
+  display: flex;
+  margin-bottom: 28px;
+
+  &__field {
+    position: relative;
+  }
+
+  &__btn {
+    height: 40px;
+    border-radius: 4px;
+    color: #303233;
+    padding: 0 26px 0 12px;
+    background-image: url(../img/arrow-down.svg);
+    background-repeat: no-repeat;
+    background-position: right;
+    cursor: pointer;
+    border: 0;
+
+    &:hover {
+      color: #e53e3e;
+    }
+  }
+
+  &__list {
+    display: none;
+    position: absolute;
+    top: 100%;
+    border-radius: 4px;
+    z-index: 999;
+    background: #fff;
+    color: #303233;
+    padding: 5px 0;
+    box-shadow: 0 6px 20px rgb(48 50 51 / 20%);
+    &_active {
+      display: block;
+    }
+  }
+
+  &__item {
+    position: relative;
+    padding: 9px 30px 9px 33px;
+    line-height: normal;
+    cursor: pointer;
+    min-height: 34px;
+    white-space: nowrap;
+    color: #303233;
+    outline: none;
+    background: transparent;
+
+
+    &:hover {
+      background: #1785e5;
+      color: #fff;
+    }
+
+    &_active {
+      position: relative;
+
+      &:before {
+        display: inline-block;
+        position: absolute;
+        content: "";
+        top: 12px;
+        left: 13px;
+        width: 11px;
+        height: 10px;
+        background-image: url(../img/check.svg);
+        background-repeat: no-repeat;
+        background-position: 0 0;
+      }
+
+      &:hover:before {
+        background-position: -18px 0;
+      }
+    }
+  }
+}
+
