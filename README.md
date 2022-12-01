@@ -20,3 +20,5 @@ npm index
 <br/>
 После этого воспользуйтесь плагином Live Server для открытия страницы index.html в браузере
 <br/>
+
+В проекте на языке JavaScript реализован сервер, API, работа с promise, fetch, DOM, сортировка, работа с JSON.
