@@ -24,9 +24,9 @@ npm index
 
 
 ### :hammer_and_wrench: В проекте на языке JavaScript реализован сервер, API, работа с promise, fetch, DOM, сортировка, работа с JSON.
-<div align="center">
+<br/>
+
 ### :fire: Вы можете:
-</div>
 <br/>
 
 Искать вакансии в разных городах; <br/>
