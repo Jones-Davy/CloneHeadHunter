@@ -4,6 +4,24 @@ const optionBtnOrder = document.querySelector('.option__btn_order')
 const optionBtnPeriod = document.querySelector('.option__btn_period')
 const optionListOrder = document.querySelector('.option__list_order')
 const optionListPeriod = document.querySelector('.option__list_period')
+const orderBy = document.querySelector('#order_by')
+const searchPeriod = document.querySelector('.search_period')
+
+let data
+
+const sortData = () => {
+    switch(orderBy.value) {
+        case 'down':
+            data.sort((a,b) => a.minCompensation > b.minCompensation ? 1 : -1)
+            break
+        case 'up':
+            data.sort((a,b) => b.minCompensation > a.minCompensation ? 1 : -1)
+            break
+
+        default:
+            data.sort((a,b) => new Date(a.date).getTime() > new Date(b.date).getTime() ? 1 : -1)
+    }
+}
 
 const declOfNum = (n, titles) => n + ' ' + titles[n % 10 === 1 && n % 100 !== 11 ?
     0 : n % 10 >= 2 && n % 10 <= 4 && (n % 100 < 10 || n % 100 >= 20) ? 1 : 2];
@@ -23,6 +41,9 @@ optionListOrder.addEventListener('click', (e) => {
 
     if(target.classList.contains('option__item')) {
         optionBtnOrder.textContent = target.textContent
+        orderBy.value = target.dataset.sort
+        sortData()
+        renderCards(data)
         optionListOrder.classList.remove('option__list_active')
         for (const elem of optionListOrder.querySelectorAll('.option__item')) {
             if (elem === target) {
@@ -66,10 +87,16 @@ topCityBtn.addEventListener('click', () => {
 
 })
 
-cityRegionList.addEventListener('click', (e) => {
+cityRegionList.addEventListener('click', async (e) => {
     const target = e.target
 
     if(target.classList.contains('city__link')) {
+        const hash = new URL(target.href).hash.substring(1)
+        const option = {
+            [hash]: target.textContent,
+        }
+        data = await getData(option)
+        renderCards(data)
         topCityBtn.textContent = target.textContent
         city.classList.remove('city_active')
     }
@@ -209,11 +236,22 @@ const renderCards = (data) => {
 
 }
 
-const getData = ({search, id} = {}) => { 
+const getData = ({search, id, country, city} = {}) => { 
+    let url = `http://localhost:3000/api/vacancy/${id ? id : ''}`
     if (search) {
-        return fetch(`http://localhost:3000/api/vacancy?search=${search}`).then(response => response.json())
+        url = `http://localhost:3000/api/vacancy?search=${search}`
     }
-    return fetch(`http://localhost:3000/api/vacancy/${id ? id : ''}`).then(response => response.json())
+
+    if(city) {
+
+        url = `http://localhost:3000/api/vacancy?city=${city}`
+    }
+
+    if (country) {
+        url = `http://localhost:3000/api/vacancy?country=${country}`
+
+    }
+    return fetch(url).then(response => response.json())
 }
 
 
@@ -228,7 +266,7 @@ formSearch.addEventListener('submit', async e => {
     if(textSearch.length > 2) {
         formSearch.search.style.borderColor = ''
 
-        const data = await getData({search: textSearch})
+        data = await getData({search: textSearch})
         renderCards(data)
         found.innerHTML = `${declOfNum(data.length, ['вакансия', 'вакансии', 'вакансий'])} &laquo;${textSearch}&raquo;`
         formSearch.reset()
@@ -244,7 +282,7 @@ formSearch.addEventListener('submit', async e => {
 
 
 const init = async() => {
-    const data = await getData()
+    data = await getData()
     renderCards(data)
 
 }
