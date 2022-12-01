@@ -5,7 +5,7 @@ const optionBtnPeriod = document.querySelector('.option__btn_period')
 const optionListOrder = document.querySelector('.option__list_order')
 const optionListPeriod = document.querySelector('.option__list_period')
 const orderBy = document.querySelector('#order_by')
-const searchPeriod = document.querySelector('.search_period')
+const searchPeriod = document.querySelector('#search_period')
 
 let data
 
@@ -19,9 +19,16 @@ const sortData = () => {
             break
 
         default:
-            data.sort((a,b) => new Date(a.date).getTime() > new Date(b.date).getTime() ? 1 : -1)
+            data.sort((a,b) => new Date(b.date).getTime() > new Date(a.date).getTime() ? 1 : -1)
     }
 }
+
+const filterData = () => {
+    const date = new Date()
+    date.setDate(date.getDate() - searchPeriod.value)
+    return data.filter((item) => new Date(item.date).getTime() > date)
+}
+
 
 const declOfNum = (n, titles) => n + ' ' + titles[n % 10 === 1 && n % 100 !== 11 ?
     0 : n % 10 >= 2 && n % 10 <= 4 && (n % 100 < 10 || n % 100 >= 20) ? 1 : 2];
@@ -63,6 +70,9 @@ optionListPeriod.addEventListener('click', (e) => {
 
     if(target.classList.contains('option__item')) {
         optionBtnPeriod.textContent = target.textContent
+        searchPeriod.value = target.dataset.date
+        const tempData = filterData()
+        renderCards(tempData)
         optionListPeriod.classList.remove('option__list_active')
     }
     for (const elem of optionListPeriod.querySelectorAll('.option__item')) {
@@ -96,6 +106,7 @@ cityRegionList.addEventListener('click', async (e) => {
             [hash]: target.textContent,
         }
         data = await getData(option)
+        sortData()
         renderCards(data)
         topCityBtn.textContent = target.textContent
         city.classList.remove('city_active')
@@ -267,6 +278,7 @@ formSearch.addEventListener('submit', async e => {
         formSearch.search.style.borderColor = ''
 
         data = await getData({search: textSearch})
+        sortData()
         renderCards(data)
         found.innerHTML = `${declOfNum(data.length, ['вакансия', 'вакансии', 'вакансий'])} &laquo;${textSearch}&raquo;`
         formSearch.reset()
@@ -283,6 +295,8 @@ formSearch.addEventListener('submit', async e => {
 
 const init = async() => {
     data = await getData()
+    sortData()
+    data = filterData()
     renderCards(data)
 
 }
