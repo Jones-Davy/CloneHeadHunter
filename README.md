@@ -23,7 +23,7 @@ npm index
 <br/>
 
 
-### :hammer_and_wrench: В проекте на языке JavaScript реализован сервер, API, работа с promise, fetch, DOM, сортировка, работа с JSON.
+### :hammer_and_wrench: В проекте на языке JavaScript реализован сервер, API, работа с promise, fetch, DOM, filter, работа с JSON.
 <br/>
 
 ### :fire: Вы можете:
